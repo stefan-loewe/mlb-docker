@@ -1,0 +1,4 @@
+username: !!python/unicode 'enter mlb.tv username here, in single quotes'
+password: !!python/unicode 'enter mlb.tv password here, in single quotes'
+player: !!python/unicode '/usr/bin/vlc'
+time_zone: Europe/Berlin
