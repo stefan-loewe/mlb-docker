@@ -14,7 +14,8 @@ bin/config.yaml
     1. -r, --resolution: the preffered resoltion, i.e., one of 720p_alt, 720p, 540p, 504p, 360p, 288p, 224p, defaults to 360p
     2. -d, --date: the date of the game to get, must be in the format 'yyyy-mm-dd'
     3. -f, --filename: the name of the file to which store the stream, defaults to 'stream.mp4', output directory will be `games`
-    4. -t, --team: the team for which to get the game, must be one of 'cle', 'tor', 'ana', ...
+    4. -o, --offset: the offset from which to start the stream, either an integer (e.g., 52 would mean 52 minutes from the start) or a string like B6, meaning bottom of the sixth inning
+    5. -t, --team: the team for which to get the game, must be one of 'cle', 'tor', 'ana', ...
 2. once the download started, open a new session and run, e.g., `vlc games/stream.mp4`
 
 ## Examples
@@ -28,5 +29,5 @@ watch the Indians win today
 watch the Blue Jays loose in high-definition, with 60fps
 `./run.sh -r 720p_alt -d 2018-07-04 -t tor`
 
-watch the Blue Jays loose again in high-definition, 30fps
-`./run.sh -r 720p -d 2018-07-02 -t tor`
+watch the Blue Jays loose again in high-definition, 30fps, but be sure it's home game, as there hardly will be a 2nd half in the ninth inning
+`./run.sh -r 720p -d 2018-07-02 -t tor -o B9`
