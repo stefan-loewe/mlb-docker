@@ -49,7 +49,7 @@ DATE="$(tr [:upper:] [:lower:] <<< "${DATE}")"
 FILENAME="$(tr [:upper:] [:lower:] <<< "${FILENAME}")"
 TEAM="$(tr [:upper:] [:lower:] <<< "${TEAM}")"
 
-if [ $OFFSET -eq 0 ]; then
+if [ -z "$OFFSET" ]; then
   echo "full command is: 'mlbplay -r $RESOLUTION -d $DATE -s "${TRANSFER_DIR}${FILENAME}" $TEAM'"
   mlbplay -r $RESOLUTION -d $DATE -s "${TRANSFER_DIR}${FILENAME}" $TEAM
 else
