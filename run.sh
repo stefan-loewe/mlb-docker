@@ -2,7 +2,6 @@
 
 RESOLUTION="360p" # possible values are: 720p_alt, 720p, 540p, 504p, 360p, 288p, 224p
 DATE=$(date +%Y-%m-%d) # format: yyyy-mm-dd
-OFFSET="0" # offset in minutes, defaults to 0
 FILENAME="stream.mp4" # file name, defaults to "stream.mp4"
 TEAM="cle" # possible values are cle, tor, ana, ...
 
@@ -49,11 +48,15 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 # convert all arguments to lower case
 RESOLUTION="$(tr [:upper:] [:lower:] <<< "${RESOLUTION}")"
 DATE="$(tr [:upper:] [:lower:] <<< "${DATE}")"
-# OFFSET="$(tr [:upper:] [:lower:] <<< "${OFFSET}")"
 FILENAME="$(tr [:upper:] [:lower:] <<< "${FILENAME}")"
 TEAM="$(tr [:upper:] [:lower:] <<< "${TEAM}")"
 
 PWD=$(pwd)
 
-echo "running docker container via: docker run -ti -v $PWD/games/:/data mlb:latest /stream-dump.sh -r $RESOLUTION -d $DATE -f $FILENAME -o $OFFSET -t $TEAM"
-docker run --rm -ti -v $PWD/games/:/data mlb:latest /stream-dump.sh -r $RESOLUTION -d $DATE -f $FILENAME -o $OFFSET -t $TEAM
+if [ -z "$OFFSET" ]; then
+  echo "running docker container via: docker run -ti -v $PWD/games/:/data mlb:latest /stream-dump.sh -r $RESOLUTION -d $DATE -f $FILENAME -t $TEAM"
+  docker run --rm -ti -v $PWD/games/:/data mlb:latest /stream-dump.sh -r $RESOLUTION -d $DATE -f $FILENAME -t $TEAM
+else
+  echo "running docker container via: docker run -ti -v $PWD/games/:/data mlb:latest /stream-dump.sh -r $RESOLUTION -d $DATE -f $FILENAME -o $OFFSET -t $TEAM"
+  docker run --rm -ti -v $PWD/games/:/data mlb:latest /stream-dump.sh -r $RESOLUTION -d $DATE -f $FILENAME -o $OFFSET -t $TEAM
+fi
