@@ -3,7 +3,6 @@
 ## What is this?
 
 This project provides a docker image around the tool `mlbplay` of the mlbstreamer project. The advantage of the docker-based approach is to circumvent integration issues, e.g., when using `pip` on Ubuntu.
-bin/config.yaml
 ## How to build the container?
 1. Clone the repository
 2. Add your mlb.tv credentials to `./bin/config.yaml`
@@ -20,14 +19,14 @@ bin/config.yaml
 
 ## Examples
 
-watch the Indians win in standard-definition
+watch the Toronto Blue Jays game from 2018-07-04 in standard-definition
 `./run.sh -r 360p -d 2018-07-04 -t tor`
 
-watch the Indians win today
+watch Cleveland's game of today
 `./run.sh -t cle`
 
-watch the Blue Jays loose in high-definition, with 60fps
+watch the Blue Jays game in high-definition, with 60fps
 `./run.sh -r 720p_alt -d 2018-07-04 -t tor`
 
-watch the Blue Jays loose again in high-definition, 30fps, but be sure it's home game, as there hardly will be a 2nd half in the ninth inning
-`./run.sh -r 720p -d 2018-07-02 -t tor -o B9`
+watch the Blue Jays game in high-definition, 30fps, and start with the bottom of the 8th inning
+`./run.sh -r 720p -d 2018-07-02 -t tor -o B8`
