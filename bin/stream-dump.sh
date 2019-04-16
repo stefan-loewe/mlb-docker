@@ -50,10 +50,10 @@ FILENAME="$(tr [:upper:] [:lower:] <<< "${FILENAME}")"
 TEAM="$(tr [:upper:] [:lower:] <<< "${TEAM}")"
 
 if [ -z "$OFFSET" ]; then
-  echo "full command is: 'mlbplay -r $RESOLUTION -d $DATE -s "${TRANSFER_DIR}${FILENAME}" $TEAM'"
-  mlbplay -r $RESOLUTION -d $DATE -s "${TRANSFER_DIR}${FILENAME}" $TEAM
+  echo "full command is: 'mlbplay -r $RESOLUTION -s "${TRANSFER_DIR}${FILENAME}" mlb/$DATE.$TEAM'"
+  mlbplay -r $RESOLUTION -s "${TRANSFER_DIR}${FILENAME}" mlb/$DATE.$TEAM
 else
-  echo "full command is: 'mlbplay -r $RESOLUTION -d $DATE -b $OFFSET -s "${TRANSFER_DIR}${FILENAME}" $TEAM'"
-  mlbplay -r $RESOLUTION -d $DATE -b $OFFSET -s "${TRANSFER_DIR}${FILENAME}" $TEAM
+  echo "full command is: 'mlbplay -r $RESOLUTION -b $OFFSET -s "${TRANSFER_DIR}${FILENAME}" mlb/$DATE.$TEAM'"
+  mlbplay -r $RESOLUTION -b $OFFSET -s "${TRANSFER_DIR}${FILENAME}" mlb/$DATE.$TEAM
 fi
 
