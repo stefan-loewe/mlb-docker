@@ -2,8 +2,8 @@ profiles:
     default:
         providers:
             mlb: # MLB.tv
-                username: dr.koloso@web.de
-                password: YaZXcK5K
+                username: change@me2.com
+                password: changeme2
             nhl: # NHL.tv
                 username: change@me2.com
                 password: changeme2
