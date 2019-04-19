@@ -2,8 +2,8 @@
 
 RESOLUTION="360p" # possible values are: 720p_alt, 720p, 540p, 504p, 360p, 288p, 224p
 DATE=$(date +%Y-%m-%d) # format: yyyy-mm-dd
-FILENAME="stream.mp4" # file name, defaults to "stream.mp4"
 TEAM="cle" # possible values are cle, tor, ana, ...
+FILENAME="${DATE}_${TEAM}.mp4" # file name, defaults to "DATE_TEAM.mp4"
 
 # Get named parameters, inspired by https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
 POSITIONAL=()
@@ -48,8 +48,8 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 # convert all arguments to lower case
 RESOLUTION="$(tr [:upper:] [:lower:] <<< "${RESOLUTION}")"
 DATE="$(tr [:upper:] [:lower:] <<< "${DATE}")"
-FILENAME="$(tr [:upper:] [:lower:] <<< "${FILENAME}")"
 TEAM="$(tr [:upper:] [:lower:] <<< "${TEAM}")"
+FILENAME="$(tr [:upper:] [:lower:] <<< "${FILENAME}")"
 
 PWD=$(pwd)
 
