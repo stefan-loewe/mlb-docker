@@ -3,7 +3,6 @@
 RESOLUTION="360p" # possible values are: 720p_alt, 720p, 540p, 504p, 360p, 288p, 224p
 DATE=$(date +%Y-%m-%d) # format: yyyy-mm-dd
 TEAM="cle" # possible values are cle, tor, ana, ...
-FILENAME="stream.mp4" # file name to dump file to disk
 
 # Get named parameters, inspired by https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
 POSITIONAL=()
@@ -51,7 +50,7 @@ DATE="$(tr [:upper:] [:lower:] <<< "${DATE}")"
 TEAM="$(tr [:upper:] [:lower:] <<< "${TEAM}")"
 FILENAME="$(tr [:upper:] [:lower:] <<< "${FILENAME}")"
 
-if [ "$FILENAME" == "stream.mp4" ]; then
+if [ -z "$FILENAME" ]; then
   FILENAME="${DATE}_${TEAM}.mp4"
 fi
 
