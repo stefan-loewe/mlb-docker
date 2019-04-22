@@ -1,0 +1,25 @@
+profiles:
+    default:
+        providers:
+            mlb: # MLB.tv
+                username: change@me2.com
+                password: changeme2
+            nhl: # NHL.tv
+                username: change@me2.com
+                password: changeme2
+
+        player: vlc
+        streamlink_args: --hls-audio-select *
+        time_zone: Europe/Berlin
+        default_resolution: 720p_alt
+        hide_spoiler_teams: false #true to hide all, or list, e.g.
+            # - PHI
+            # - PIT
+
+    540p:
+        default_resolution: 540p
+        streamlink_args:
+    proxy:
+        proxies:
+            http: http://10.0.0.1:4123
+            https: http://10.0.0.1:4123
