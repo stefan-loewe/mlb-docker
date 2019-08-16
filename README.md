@@ -21,13 +21,17 @@ This project provides a docker image around the tool `mlbplay` of the mlbstreame
 ## Examples
 
 watch the Toronto Blue Jays game from 2019-04-21 in standard-definition
+
 `./run.sh -r 360p -d 2019-04-21 -t tor`
 
 watch Cleveland's game of today (if already being streamed)
+
 `./run.sh -t cle`
 
 watch the Blue Jays game from 2019-04-21 in high-definition, with 60fps
+
 `./run.sh -r 720p_alt -d 2019-04-21 -t tor`
 
 watch the Blue Jays game in high-definition, 30fps, and start with the bottom of the 8th inning [offsets might no longer be supported by mlbstreamer], dumping the file to `games/dump.mp4`
-`./run.sh -r 720p -d 2019-04-21 -t tor -o B8` -f dump.mp4
+
+`./run.sh -r 720p -d 2019-04-21 -t tor -o B8 -f dump.mp4`
