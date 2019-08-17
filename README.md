@@ -32,6 +32,12 @@ watch the Blue Jays game from 2019-04-21 in high-definition, with 60fps
 
 `./run.sh -r 720p_alt -d 2019-04-21 -t tor`
 
-watch the Blue Jays game in high-definition, 30fps, and start with the bottom of the 8th inning [offsets might no longer be supported by mlbstreamer], dumping the file to `games/dump.mp4`
+watch the Blue Jays game in high-definition, 30fps, and start with the bottom of the 8th inning [offsets might no longer is supported by mlbstreamer], dumping the file to `games/dump.mp4`
 
 `./run.sh -r 720p -d 2019-04-21 -t tor -o B8 -f dump.mp4`
+
+## How to download game audio?
+1. run `docker run -ti -v /home/loewe/workspace/programming/CMD/mlb-docker/games/:/data mlb:latest bash`
+2. edit `/usr/local/lib/python3.7/site-packages/mlbstreamer/play.py` in line 136 to hard-code the URL to the audio stream, taken from mlb.tv audio, or some other resource
+3. run `mlbplay -vv -r 50k -s /data/filename.mp3 mlb/yyyy-mm-dd.team-code`
+4. get the game from the `games` folder in the host machine

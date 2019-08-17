@@ -1,5 +1,8 @@
 FROM python:3
 
+RUN apt-get update
+RUN apt-get -y install vim
+
 RUN mkdir -p /data/
 VOLUME [/data] 
 
