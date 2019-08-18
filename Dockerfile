@@ -6,7 +6,7 @@ RUN apt-get -y install vim
 RUN mkdir -p /data/
 VOLUME [/data] 
 
-RUN pip install -U git+https://github.com/tonycpsu/mlbstreamer/
+RUN pip install -U git+https://github.com/stefan-loewe/mlbstreamer/
 RUN pip install requests_toolbelt
 
 COPY bin/stream-dump.sh /
