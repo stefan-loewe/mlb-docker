@@ -14,6 +14,11 @@ case $key in
     shift # past argument
     shift # past value
     ;;
+  -c|--call-letters)
+    CALL_LETTERS="$2"
+    shift # past argument
+    shift # past value
+    ;;
   -d|--date)
     DATE="$2"
     shift # past argument
@@ -48,12 +53,13 @@ DATE="$(tr [:upper:] [:lower:] <<< "${DATE}")"
 # OFFSET="$(tr [:upper:] [:lower:] <<< "${OFFSET}")"
 FILENAME="$(tr [:upper:] [:lower:] <<< "${FILENAME}")"
 TEAM="$(tr [:upper:] [:lower:] <<< "${TEAM}")"
+CALL_LETTERS="$(tr [:upper:] [:lower:] <<< "${CALL_LETTERS}")"
 
 if [ -z "$OFFSET" ]; then
-  echo "full command is: 'mlbplay -r $RESOLUTION -s "${TRANSFER_DIR}${FILENAME}" mlb/$DATE.$TEAM'"
-  mlbplay -r $RESOLUTION -s "${TRANSFER_DIR}${FILENAME}" mlb/$DATE.$TEAM
+  echo "full command is: 'mlbplay -r $RESOLUTION -c $CALL_LETTERS -s "${TRANSFER_DIR}${FILENAME}" mlb/$DATE.$TEAM'"
+  mlbplay -r $RESOLUTION -c $CALL_LETTERS -s "${TRANSFER_DIR}${FILENAME}" mlb/$DATE.$TEAM
 else
-  echo "full command is: 'mlbplay -r $RESOLUTION -b $OFFSET -s "${TRANSFER_DIR}${FILENAME}" mlb/$DATE.$TEAM'"
-  mlbplay -r $RESOLUTION -b $OFFSET -s "${TRANSFER_DIR}${FILENAME}" mlb/$DATE.$TEAM
+  echo "full command is: 'mlbplay -r $RESOLUTION -b $OFFSET -c $CALL_LETTERS -s "${TRANSFER_DIR}${FILENAME}" mlb/$DATE.$TEAM'"
+  mlbplay -r $RESOLUTION -b $OFFSET -c $CALL_LETTERS -s "${TRANSFER_DIR}${FILENAME}" mlb/$DATE.$TEAM
 fi
 
