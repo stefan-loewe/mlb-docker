@@ -1,0 +1,99 @@
+# Config file for nhlv
+#
+# Usage:
+# The configuration values are given in this file, and can be changed from defaults here.
+# Commented lines begin with '#'.
+# If a value is not provided or is commented out, then the default value is
+# used. The default value is shown commented out.
+# To change a value, copy the line, uncomment it, and provide your own value.
+
+# Credentials. Fill out your username and password here. Or provide them via command-line options.
+username=
+password=
+
+# Favourite teams, This is a comma-separated list of favourite team codes.
+# Favourite teams are identified by colour in the game listings, and can be
+# filtered on using the --filter option to show only favourites.
+# Example: favs=tor
+# Example: favs=tor,wsh
+#favs=
+
+# Favourite team colour, shown in game listings to highlight the favourite teams.
+# Leave this blank to disable
+# Available colours:
+#   black, red, green, orange, blue, purple, cyan, lightgrey, darkgrey,
+#   lightred, lightgreen, yellow, lightblue, pink, lightcyan
+#fav_colour=blue
+
+# Colour used to highlight games in 'critical' state
+#game_critical_colour=yellow
+
+# Show scores. Scores are shown by default. If this is set to false then scores are not shown.
+#scores=true
+
+# Show linescores. Requires scores=true above.
+#linescore=false
+
+# Change the format of timestrings printed
+# One of "12H" "24H"
+# 	Note: "24H" is the default
+#   Uncomment the following line to enable timestamps to print in 12 hour format with AM/PM
+#timeformat=12H
+
+# Show full article content in --info output
+# info_display_articles=true
+
+# The number of entries returned for each league stat item:
+# stats_limit=10
+
+# Maximum article width in --info output
+# Note: if terminal width is less than this, the smaller value is used.
+# info_display_max_columns=110
+
+# Use shorter feed names in game listings
+#use_short_feeds=true
+
+# Bandwidth/stream resolution. This is passed into streamlink. 
+# One of: 'worst', '224p', '288p', '360p', '504p', '540p', '720p', '720p_alt', 'best'
+#   Note: 720p_alt is the 60fps stream; all others are 30fps.
+#   Fallback streams can be specified by using a comma-separated list, e.g.: 720p_alt,720p,540p
+resolution=360p
+
+# Video player. One of vlc or mpv is recommended here. You can also set options for the player here as well.
+# Example: video_player=mpv --cache 153600
+#video_player=mpv
+video_player=
+
+# Audio player for audio-only feeds (not implemented yet):
+#audio_player=mpv
+
+# Use streamlink for highlights. If false will send url direct to video_player (no resolution selection)
+#streamlink_highlights=true
+# Passthrough the HLS stream to the player for highlights: allows seeking
+#streamlink_passthrough_highlights=true
+
+# Passthrough the HLS stream to the player for live/archived games. 
+# This shouldn't be required, and it bypasses any streamlink magic done to handle the HLS stream.
+#streamlink_passthrough=false
+
+# Audio selection
+# Control what audio streams are included in the output.
+# You can select all (*) or provide a comma-separated list of one or some combination of:
+#   English,Natural Sound,English Radio,Radio EspaÃ±ola
+# Note: the main 'English' feed seems to always be included. 
+# Set to blank to disable (only the main stream is included, this will save some disk space and/or bandwidth)
+#streamlink_hls_audio_select=*
+
+# Extra streamlink arguments
+# If set, these arguments are appended to the streamlink arguments before sent to the player.
+# This is a comma-separated list of arguments (individual arguments should be separated by a comma).
+# For example to use streamlink's external http, you can set the video_player to an empty
+# string, and then use the following streamlink_extra_args to have streamlink publish on port 8080. e.g:
+#video_player=
+#streamlink_extra_args=--player-external-http,--player-external-http-port,8080
+#
+# Default:
+#streamlink_extra_args=
+
+# Turn on extra debugging information
+#debug=false

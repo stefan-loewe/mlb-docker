@@ -2,4 +2,4 @@
 
 mkdir -p games
 
-docker build --rm -t mlb:latest .
+docker build --rm -t mlbv:latest .
