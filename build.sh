@@ -2,4 +2,4 @@
 
 mkdir -p games
 
-docker build --rm -t mlbv:latest .
+docker build --no-cache --rm -t mlbv:latest .
