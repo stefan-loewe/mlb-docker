@@ -8,7 +8,6 @@ RUN apt-get -y install vim
 
 RUN git clone https://github.com/adam-ducker/mlbv
 WORKDIR mlbv
-RUN git checkout use-pkce
 RUN pip install .
 RUN pip install pytz
 
